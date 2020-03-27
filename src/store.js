@@ -1,4 +1,5 @@
-import { createStore } from "redux"
+import { createStore, applyMiddleware } from "redux"
+import thunkMiddleware from "redux-thunk";
 import fetch from 'cross-fetch'
 
 // ACTIONS //
@@ -58,4 +59,4 @@ export default createStore(function (state = initialState, action){
             return state
         }
     }
-})
+}, applyMiddleware(thunkMiddleware))
