@@ -1,11 +1,12 @@
 import { createStore } from "redux"
+import fetch from 'cross-fetch'
 
 // ACTIONS //
 const URL = "http://localhost:8081"
 
 export function updateMessages(messages) {
     return {
-        type: UPDATE_MESSAGES,
+        type: 'UPDATE_MESSAGES',
         messages
     }
 }
@@ -22,7 +23,7 @@ export function getMessages() {
 
 export function pushMessage(message) {
     return {
-        type: ADD_MESSAGE,
+        type: 'ADD_MESSAGE',
         message
     }
 }
@@ -41,13 +42,13 @@ const initialState = {
 }
 export default createStore(function (state = initialState, action){
     switch(action.type){
-        case ADD_MESSAGE: {
+        case 'ADD_MESSAGE': {
             return {
                 ...state,
                 messages: [...state.messages, action.message]
             }
         }
-        case UPDATE_MESSAGES: {
+        case 'UPDATE_MESSAGES': {
             return {
                 ...state,
                 messages: action.messages
