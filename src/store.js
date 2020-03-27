@@ -3,7 +3,7 @@ import thunkMiddleware from "redux-thunk";
 import fetch from 'cross-fetch'
 
 // ACTIONS //
-const URL = "http://localhost:8081"
+const URL = "http://localhost:8081/message"
 
 export function updateMessages(messages) {
     return {
