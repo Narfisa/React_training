@@ -12,7 +12,7 @@ class messageForm extends React.Component{
     }
 
     sendMessage() {
-        this.props.dispatch(sendMessage({nickname: this.state.nickname, message: this.state.message}))
+        this.props.dispatch(sendMessage(this.state))
         this.setState({message: ''})
     }
 

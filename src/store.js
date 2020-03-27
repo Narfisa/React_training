@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from "redux"
-import thunkMiddleware from "redux-thunk";
-import fetch from 'cross-fetch'
+import thunkMiddleware from "redux-thunk"
+import axios from 'axios'
 
 // ACTIONS //
 const URL = "http://localhost:8081/message"
@@ -14,10 +14,9 @@ export function updateMessages(messages) {
 
 export function getMessages() {
     return (dispatch) => {
-        return fetch(URL)
-          .then(responce => responce.json())
+        return axios.get(URL)
           .then((responce) => {
-            dispatch(updateMessages(responce))
+              dispatch(updateMessages(responce.data))
           })
     }
 }
@@ -31,7 +30,7 @@ export function pushMessage(message) {
 
 export function sendMessage(data) {
     return (dispatch) => {
-        return fetch(URL, { method: "POST", body: JSON.stringify(data)})
+        return axios.post(URL, data)
           .then((responce) => dispatch(pushMessage(data)))
     }
 }
