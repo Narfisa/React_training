@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from "react-redux";
 import './App.css';
-import MessagesList from "./components/messagesList";
-import MessageForm from "./components/messageForm";
+import MessagesList from "./components/MessagesList";
+import MessageForm from "./components/MessageForm";
 import {getMessages} from "./store";
 
 class App extends React.Component{
